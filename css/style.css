@@ -5,9 +5,8 @@ body {
 
 #map {
     position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
     background-color: #999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
