@@ -1,4 +1,4 @@
-function getConvexHull(allPoints) {
+function Quickhull(allPoints) {
     this.returnPoints = allPoints;
     this.handlePoints = this.getHandlePoints(allPoints);
     this.hullPoints = new Array();
@@ -10,10 +10,10 @@ function getConvexHull(allPoints) {
     this.getTriangularPoint(this.handlePoints[minX], this.handlePoints[maxX], 'bottom');
 }
 
-getConvexHull.prototype.getHandlePoints = function (points) {
+Quickhull.prototype.getHandlePoints = function (points) {
     var handlePoints = new Array();
     for (var i = 0; i < points.length; i++) {
-        handlePoints[i] = {};
+        handlePoints[i] = points[i];
         for (var value in points[i]) {
             switch (value) {
                 case 'lat':
@@ -30,7 +30,7 @@ getConvexHull.prototype.getHandlePoints = function (points) {
     return handlePoints;
 };
 
-getConvexHull.prototype.getHullPoints = function (sorted) {
+Quickhull.prototype.getHullPoints = function (sorted) {
     var hullReturn = new Array();
     var hullHanddle;
     if (sorted) {
@@ -45,7 +45,7 @@ getConvexHull.prototype.getHullPoints = function (sorted) {
     return hullReturn;
 };
 
-getConvexHull.prototype.sortPoints = function () {
+Quickhull.prototype.sortPoints = function () {
     var hullSort = new Array(
             new Array(),
             new Array(),
@@ -101,7 +101,7 @@ getConvexHull.prototype.sortPoints = function () {
     return hullHanddle;
 }
 
-getConvexHull.prototype.getMinimalPoint = function (axis) {
+Quickhull.prototype.getMinimalPoint = function (axis) {
     var index;
     var handleValue;
     for (var i = 0; i < this.handlePoints.length; i++) {
@@ -118,7 +118,7 @@ getConvexHull.prototype.getMinimalPoint = function (axis) {
     return index;
 };
 
-getConvexHull.prototype.getMaximumPoint = function (axis) {
+Quickhull.prototype.getMaximumPoint = function (axis) {
     var index;
     var handleValue;
     for (var i = 0; i < this.handlePoints.length; i++) {
@@ -136,7 +136,7 @@ getConvexHull.prototype.getMaximumPoint = function (axis) {
     return index;
 };
 
-getConvexHull.prototype.getTriangularPoint = function (pointA, pointB, mode) {
+Quickhull.prototype.getTriangularPoint = function (pointA, pointB, mode) {
     var cuo = {
         x: pointA.x - pointB.x,
         y: pointA.y - pointB.y,
