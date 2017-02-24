@@ -1,7 +1,8 @@
 #Quickhull
 Quickhull is a method of computing the convex hull of a finite set of points in the plane. It uses a divide and conquer approach similar to that of quicksort, which its name derives from. Its average case complexity is considered to be O(n * log(n)), whereas in the worst case it take O(n²) (quadratic).
 
-{{Animação do algorítimo}}
+![Quickhull](https://upload.wikimedia.org/wikipedia/commons/4/42/Animation_depicting_the_quickhull_algorithm.gif)
+
 [wikipedia](https://en.wikipedia.org/wiki/Quickhull)
 
 ###Quickhull in javascript
